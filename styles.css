@@ -1,0 +1,311 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e3f2fd; /* Azul muy claro y suave */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    max-width: 650px; /* Ancho máximo para el formato vertical por defecto */
+    width: 100%;
+    text-align: center;
+    
+    /* Configuración de Grid por defecto (para móvil/vertical) */
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna */
+    grid-template-areas:
+        "header"
+        "conditions"
+        "preferences"
+        "button"
+        "recommendation";
+    gap: 20px; /* Espacio entre secciones */
+}
+
+/* Asignación de áreas para el diseño por defecto (vertical) */
+.main-header {
+    grid-area: header;
+}
+.conditions-column {
+    grid-area: conditions;
+}
+.preferences-column {
+    grid-area: preferences;
+}
+#recomendarBtn {
+    grid-area: button;
+}
+.final-recommendation {
+    grid-area: recommendation;
+}
+
+
+h1 {
+    color: #0d47a1;
+    margin-bottom: 10px; /* Margen reducido */
+    font-size: 2em; /* Tamaño de fuente ligeramente más pequeño */
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    color: #1976d2;
+    margin-top: 0; /* Ya no hay margen superior ya que está dentro de las columnas */
+    margin-bottom: 15px;
+    font-size: 1.5em; /* Tamaño de fuente más pequeño */
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #3f51b5;
+    margin-top: 15px; /* Margen superior ajustado */
+    margin-bottom: 10px;
+    font-size: 1.1em; /* Tamaño de fuente más pequeño */
+}
+
+.description {
+    font-size: 1em; /* Tamaño de fuente más pequeño */
+    color: #555;
+    margin-bottom: 20px; /* Margen inferior reducido */
+    max-width: 500px; /* Ancho máximo para el texto */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos generales para las columnas */
+.column {
+    background-color: #fcfcfc;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+    text-align: center; /* Alinea el contenido de las columnas al centro */
+}
+
+/* Estilo específico para la sección de la recomendación final */
+.output-section.final-recommendation {
+    background-color: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.1);
+    padding: 20px; /* Padding ajustado */
+    border-radius: 8px;
+}
+
+
+.preference-group {
+    margin-bottom: 15px; /* Espacio entre grupos de preferencia reducido */
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Espacio entre los botones de radio reducido */
+}
+
+.radio-group label {
+    background-color: #f0f4f8;
+    padding: 8px 15px; /* Relleno aún más reducido */
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #c5daed;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+    font-weight: 500;
+}
+
+.radio-group label:hover {
+    background-color: #e6f0f9;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+.radio-group input[type="radio"] {
+    appearance: none;
+    width: 16px; /* Tamaño más pequeño */
+    height: 16px;
+    border: 2px solid #42a5f5;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.radio-group input[type="radio"]:checked {
+    background-color: #2196f3;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.25);
+}
+
+.radio-group input[type="radio"]:checked::after {
+    content: '';
+    width: 8px; /* Tamaño del punto central ajustado */
+    height: 8px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px; /* Relleno reducido */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05em; /* Tamaño de fuente más pequeño */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 150, 0, 0.15);
+}
+
+button:hover {
+    background-color: #43a047;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 150, 0, 0.25);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.output-section p {
+    font-size: 1em; /* Tamaño de fuente ajustado */
+    margin-bottom: 5px; /* Margen inferior reducido */
+}
+
+.output-section span {
+    font-weight: bold;
+    color: #1565c0;
+}
+
+.recommendation {
+    font-size: 1.5em; /* Tamaño de fuente de recomendación ajustado */
+    font-weight: bold;
+    color: #d32f2f;
+    margin-top: 15px; /* Margen superior reducido */
+    padding: 12px; /* Padding reducido */
+    background-color: #ffebee;
+    border-radius: 8px;
+    border: 1px solid #ef9a9a;
+    box-shadow: 0 2px 6px rgba(211, 47, 47, 0.08);
+}
+
+/* Media Queries para responsividad */
+/* Ajustes para pantallas pequeñas (modo retrato de móvil, por ejemplo) */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px 10px; /* Padding aún más reducido en móvil */
+        gap: 15px;
+    }
+    h1 {
+        font-size: 1.6em;
+    }
+    h2 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    h3 {
+        font-size: 1em;
+        margin-top: 10px;
+        margin-bottom: 8px;
+    }
+    .description {
+        font-size: 0.95em;
+        margin-bottom: 15px;
+    }
+    .column {
+        padding: 15px;
+    }
+    .radio-group {
+        gap: 8px;
+    }
+    .radio-group label {
+        width: 95%; /* Ocupa casi todo el ancho */
+        max-width: 250px;
+        font-size: 0.85em;
+        padding: 8px 12px;
+    }
+    button {
+        font-size: 0.95em;
+        padding: 8px 18px;
+    }
+    .recommendation {
+        font-size: 1.2em;
+        padding: 10px;
+    }
+    .output-section p, .output-section span {
+        font-size: 0.9em;
+    }
+}
+
+/* Media Query para formato Landscape (mayor ancho que alto) y pantallas más grandes */
+@media (orientation: landscape) and (min-width: 769px) {
+    .container {
+        max-width: 950px; /* Ancho máximo amplio para las columnas */
+        padding: 40px;
+        /* Definimos las áreas del grid para el diseño de dos columnas */
+        grid-template-areas:
+            "header header"
+            "conditions preferences"
+            "button button"
+            "recommendation recommendation";
+        grid-template-columns: 1fr 1fr; /* Dos columnas de igual ancho */
+        gap: 30px; /* Espacio entre las áreas/columnas */
+    }
+
+    /* Ajustes específicos para los elementos dentro de las columnas en landscape */
+    .main-header {
+        grid-area: header;
+        text-align: center;
+    }
+
+    .conditions-column {
+        grid-area: conditions;
+        text-align: left; /* Alinea el texto de condiciones a la izquierda */
+        padding: 25px; /* Más padding para que respire */
+    }
+
+    .preferences-column {
+        grid-area: preferences;
+        text-align: left; /* Alinea el texto de preferencias a la izquierda */
+        padding: 25px; /* Más padding para que respire */
+    }
+    
+    h1 {
+        font-size: 2.2em; /* Restaurar tamaño de H1 en pantallas grandes */
+    }
+    .description {
+        margin-top: -10px; /* Ajuste para acercar la descripción al título */
+        font-size: 1.1em;
+    }
+
+    h2 {
+        text-align: center; /* Centrar los títulos dentro de las columnas */
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        text-align: center; /* Centrar los subtítulos dentro de las columnas
